@@ -21,7 +21,7 @@ LibDriver WS2812B ist der voll funktionsfähige Treiber von ws2812b, der von Lib
   - [Dokument](#Dokument)
   - [Beitrag](#Beitrag)
   - [Lizenz](#Lizenz)
-  - [kontaktiere uns](#kontaktiere-uns)
+  - [Kontaktieren Sie uns](#Kontaktieren-Sie-uns)
 
 ### Anweisung
 
@@ -143,6 +143,6 @@ AUS ODER IM ZUSAMMENHANG MIT DER SOFTWARE ODER DER VERWENDUNG ODER ANDEREN HANDL
 
 SOFTWARE.
 
-### kontaktiere uns
+### Kontaktieren Sie uns
 
 Bitte senden Sie eine E-Mail an lishifenging@outlook.com
