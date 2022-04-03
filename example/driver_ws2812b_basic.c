@@ -47,7 +47,7 @@ static ws2812b_handle_t gs_handle;        /**< ws2812b handle */
  */
 uint8_t ws2812b_basic_init(void)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     /* link interface function */
     DRIVER_WS2812B_LINK_INIT(&gs_handle, ws2812b_handle_t);
@@ -59,7 +59,7 @@ uint8_t ws2812b_basic_init(void)
     
     /* ws2812b initialization */
     res = ws2812b_init(&gs_handle);
-    if (res)
+    if (res != 0)
     {
         ws2812b_interface_debug_print("ws2812b: init failed.\n");
        
@@ -82,7 +82,7 @@ uint8_t ws2812b_basic_init(void)
  */
 uint8_t ws2812b_basic_write(uint32_t *rgb, uint32_t len, uint8_t *temp, uint32_t temp_len)
 {
-    if (ws2812b_write(&gs_handle, rgb, len, temp, temp_len))
+    if (ws2812b_write(&gs_handle, rgb, len, temp, temp_len) != 0)
     {
         return 1;
     }
@@ -101,7 +101,7 @@ uint8_t ws2812b_basic_write(uint32_t *rgb, uint32_t len, uint8_t *temp, uint32_t
  */
 uint8_t ws2812b_basic_deinit(void)
 {
-    if (ws2812b_deinit(&gs_handle))
+    if (ws2812b_deinit(&gs_handle) != 0)
     {
         return 1;
     }

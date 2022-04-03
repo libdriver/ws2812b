@@ -67,7 +67,7 @@ uint8_t ws2812b(uint8_t argc, char **argv)
             ws2812b_info_t info;
             
             /* print ws2812b info */
-            ws2812b_info(&info);
+            (void)ws2812b_info(&info);
             ws2812b_interface_debug_print("ws2812b: chip is %s.\n", info.chip_name);
             ws2812b_interface_debug_print("ws2812b: manufacturer is %s.\n", info.manufacturer_name);
             ws2812b_interface_debug_print("ws2812b: interface is %s.\n", info.interface);
@@ -116,16 +116,16 @@ uint8_t ws2812b(uint8_t argc, char **argv)
         {
             if (strcmp("read", argv[2]) == 0)
             {
-                volatile uint8_t res;
-                volatile uint32_t num;
-                volatile uint32_t times;
+                uint8_t res;
+                uint32_t num;
+                uint32_t times;
                 
                 num = atoi(argv[3]);
                 times = atoi(argv[4]);
                 
                 /* run read test */
                 res = ws2812b_read_test(num, times);
-                if (res)
+                if (res != 0)
                 {
                     return 1;
                 }
@@ -143,10 +143,10 @@ uint8_t ws2812b(uint8_t argc, char **argv)
         {
             if (strcmp("write", argv[2]) == 0)
             {
-                volatile uint8_t res;
-                volatile uint32_t i;
-                volatile uint32_t num;
-                volatile uint32_t color;
+                uint8_t res;
+                uint32_t i;
+                uint32_t num;
+                uint32_t color;
                 
                 /* get number */
                 num = atoi(argv[3]);
@@ -163,7 +163,7 @@ uint8_t ws2812b(uint8_t argc, char **argv)
                 
                 /* init */
                 res = ws2812b_basic_init();
-                if (res)
+                if (res != 0)
                 {
                     return 1;
                 }
@@ -179,16 +179,16 @@ uint8_t ws2812b(uint8_t argc, char **argv)
                 
                 /* write data */
                 res = ws2812b_basic_write(gs_rgb, num, gs_temp, 1024);
-                if (res)
+                if (res != 0)
                 {
-                    ws2812b_basic_deinit();
+                    (void)ws2812b_basic_deinit();
                     
                     return 1;
                 }
                 
                 /* close the chip */
                 res = ws2812b_basic_deinit();
-                if (res)
+                if (res != 0)
                 {
                     return 1;
                 }

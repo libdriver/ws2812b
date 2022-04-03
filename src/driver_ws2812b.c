@@ -93,7 +93,7 @@ uint8_t ws2812b_init(ws2812b_handle_t *handle)
         return 3;                                                        /* return error */
     }
     
-    if (handle->spi_10mhz_init())                                        /* spi init */
+    if (handle->spi_10mhz_init() != 0)                                   /* spi init */
     {
         handle->debug_print("ws2812b: spi init failed.\n");              /* spi init failed */
        
@@ -108,64 +108,57 @@ uint8_t ws2812b_init(ws2812b_handle_t *handle)
  * @brief     write one frame
  * @param[in] rgb is the input color
  * @param[in] *temp points to a temp buffer
- * @return    status code
- *            - 0 success
  * @note      none
  */
-static uint8_t _ws2812b_write_one_frame(uint32_t rgb, uint8_t temp[48])
+static void a_ws2812b_write_one_frame(uint32_t rgb, uint8_t temp[48])
 {
-    volatile uint8_t r, g, b;
-    volatile uint8_t i, j;
-    volatile uint32_t c, index;
-    volatile uint8_t start_byte_index, start_bit_index;
-    const uint16_t one_code = 0xFFF8;
-    const uint16_t zero_code = 0xE000;
+    uint8_t r, g, b;
+    uint8_t i, j;
+    uint32_t c, point;
+    const uint16_t one_code = 0xFFF8U;
+    const uint16_t zero_code = 0xE000U;
     
-    r = (rgb >> 16) & 0xFF;                                          /* set red */
-    g = (rgb >> 8) & 0xFF;                                           /* set green */
-    b = (rgb >> 0) & 0xFF;                                           /* set blue */
+    r = (uint8_t)((rgb >> 16) & 0xFF);                               /* set red */
+    g = (uint8_t)((rgb >> 8) & 0xFF);                                /* set green */
+    b = (uint8_t)((rgb >> 0) & 0xFF);                                /* set blue */
     c = ((uint32_t)(g) << 16) | ((uint32_t)(r) << 8) | b;            /* set color */
     
-    start_byte_index = 0;                                            /* set start byte index */
-    start_bit_index = 0;                                             /* set start bit index */
     memset(temp, 0, sizeof(uint8_t) * 30);                           /* clear the temp buffer */
     
-    index = 0;                                                       /* clear index */
+    point = 0;                                                       /* clear point */
     for (i = 0; i < 24; i++)                                         /* set 24 bit */
     {
-        if ((c >> (23 - i)) & 0x01)                                  /* if bit 1 */
+        if (((c >> (23 - i)) & 0x01) != 0)                           /* if bit 1 */
         {
             for (j = 0; j < 16; j ++)                                /* 16 bit */
             {
-                if ((one_code >> (15 - j)) & 0x01)                   /* if one code */
+                if (((one_code >> (15 - j)) & 0x01) != 0)            /* if one code */
                 {
-                    temp[index / 8] |= 1 << (7 - (index % 8));       /* set bit 1 */
+                    temp[point / 8] |= 1 << (7 - (point % 8));       /* set bit 1 */
                 }
                 else
                 {
-                    temp[index / 8] |= 0 << (7 - (index % 8));       /* set bit 0 */
+                    temp[point / 8] |= 0 << (7 - (point % 8));       /* set bit 0 */
                 }
-                index = index + 1;                                   /* index++ */
+                point = point + 1;                                   /* point++ */
             }
         }
         else                                                         /* if bit 0 */
         {
             for (j = 0; j < 16; j ++)                                /* 16 bit */
             {
-                if ((zero_code >> (15 - j)) & 0x01)                  /* if zero code */
+                if (((zero_code >> (15 - j)) & 0x01) != 0)           /* if zero code */
                 {
-                    temp[index / 8] |= 1 << (7 - (index % 8));       /* set bit 1 */
+                    temp[point / 8] |= 1 << (7 - (point % 8));       /* set bit 1 */
                 }
                 else
                 {
-                    temp[index / 8] |= 0 << (7 - (index % 8));       /* set bit 0 */
+                    temp[point / 8] |= 0 << (7 - (point % 8));       /* set bit 0 */
                 }
-                index = index + 1;                                   /* index++ */
+                point = point + 1;                                   /* point++ */
             }
         }
     }
-    
-    return 0;                                                        /* success return 0 */
 }
 
 /**
@@ -187,8 +180,7 @@ static uint8_t _ws2812b_write_one_frame(uint32_t rgb, uint8_t temp[48])
  */
 uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uint8_t *temp, uint32_t temp_len)
 {
-    volatile uint8_t res;
-    volatile uint32_t i, bit_size;
+    uint32_t i, bit_size;
     
     if (handle == NULL)                                                     /* check handle */
     {
@@ -224,7 +216,7 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
     {
         temp[i] = 0x00;                                                     /* set 0x00 */
     }
-    if (handle->spi_write_cmd(temp, bit_size))                              /* write command */
+    if (handle->spi_write_cmd(temp, (uint16_t)bit_size) != 0)               /* write command */
     {
         handle->debug_print("ws2812b: write command failed.\n");            /* write command failed */
         
@@ -243,10 +235,10 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
    
     for (i = 0; i < len; i++)                                               /* set the color frame */
     {
-        _ws2812b_write_one_frame(rgb[i], &temp[i * 48]);                    /* set color */
+        a_ws2812b_write_one_frame(rgb[i], &temp[i * 48]);                   /* set color */
     }
     
-    if (handle->spi_write_cmd(temp, bit_size))                              /* write command */
+    if (handle->spi_write_cmd(temp, (uint16_t)bit_size) != 0)               /* write command */
     {
         handle->debug_print("ws2812b: write command failed.\n");            /* write command failed */
         
@@ -272,8 +264,7 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
  */
 uint8_t ws2812b_write_only_reset(ws2812b_handle_t *handle, uint8_t *temp, uint32_t temp_len)
 {
-    volatile uint8_t res;
-    volatile uint32_t i, bit_size;
+    uint32_t i, bit_size;
     
     if (handle == NULL)                                                     /* check handle */
     {
@@ -305,7 +296,7 @@ uint8_t ws2812b_write_only_reset(ws2812b_handle_t *handle, uint8_t *temp, uint32
         temp[i] = 0x00;                                                     /* set 0x00 */
     }
     
-    if (handle->spi_write_cmd(temp, bit_size))                              /* write command */
+    if (handle->spi_write_cmd(temp, (uint16_t)bit_size) != 0)               /* write command */
     {
         handle->debug_print("ws2812b: write command failed.\n");            /* write command failed */
         
@@ -334,8 +325,7 @@ uint8_t ws2812b_write_only_reset(ws2812b_handle_t *handle, uint8_t *temp, uint32
  */
 uint8_t ws2812b_write_only_color(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uint8_t *temp, uint32_t temp_len)
 {
-    volatile uint8_t res;
-    volatile uint32_t i, bit_size;
+    uint32_t i, bit_size;
     
     if (handle == NULL)                                                     /* check handle */
     {
@@ -370,10 +360,10 @@ uint8_t ws2812b_write_only_color(ws2812b_handle_t *handle, uint32_t *rgb, uint32
    
     for (i = 0; i < len; i++)                                               /* set the color frame */
     {
-        _ws2812b_write_one_frame(rgb[i], &temp[i * 48]);                    /* set color */
+        a_ws2812b_write_one_frame(rgb[i], &temp[i * 48]);                   /* set color */
     }
     
-    if (handle->spi_write_cmd(temp, bit_size))                              /* write command */
+    if (handle->spi_write_cmd(temp, (uint16_t)bit_size) != 0)               /* write command */
     {
         handle->debug_print("ws2812b: write command failed.\n");            /* write command failed */
         
@@ -395,7 +385,7 @@ uint8_t ws2812b_write_only_color(ws2812b_handle_t *handle, uint32_t *rgb, uint32
  */
 uint8_t ws2812b_deinit(ws2812b_handle_t *handle)
 {
-    volatile uint8_t res;
+    uint8_t res;
     
     if (handle == NULL)                                              /* check handle */
     {
@@ -407,7 +397,7 @@ uint8_t ws2812b_deinit(ws2812b_handle_t *handle)
     }
     
     res = handle->spi_deinit();                                      /* spi deinit */
-    if (res)                                                         /* check error */
+    if (res != 0)                                                    /* check error */
     {
         handle->debug_print("ws2812b: spi deinit failed.\n");        /* spi deinit failed */
        
@@ -430,7 +420,7 @@ uint8_t ws2812b_deinit(ws2812b_handle_t *handle)
  *            - 3 handle is not initialized
  * @note      none
  */
-uint8_t ws2812b_set_reg(ws2812b_handle_t *handle, uint8_t *buf, uint32_t len)
+uint8_t ws2812b_set_reg(ws2812b_handle_t *handle, uint8_t *buf, uint16_t len)
 {
     if (handle == NULL)                            /* check handle */
     {

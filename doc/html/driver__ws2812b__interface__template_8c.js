@@ -1,6 +1,6 @@
 var driver__ws2812b__interface__template_8c =
 [
-    [ "ws2812b_interface_debug_print", "group__ws2812b__interface__driver.html#ga013d29331b92faad80331638c241e7d8", null ],
+    [ "ws2812b_interface_debug_print", "group__ws2812b__interface__driver.html#ga06272a71df762b39a7a55770ed0784d1", null ],
     [ "ws2812b_interface_delay_ms", "group__ws2812b__interface__driver.html#gafbc8bb115b98f6821e9abcecc8df4e94", null ],
     [ "ws2812b_interface_spi_10mhz_init", "group__ws2812b__interface__driver.html#ga6ae146c64fb745f2d0d2b6c8ac1ac39e", null ],
     [ "ws2812b_interface_spi_deinit", "group__ws2812b__interface__driver.html#gada66d175cfd4373710ce36097b93cc06", null ],

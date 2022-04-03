@@ -1,6 +1,6 @@
 var structws2812b__handle__s =
 [
-    [ "debug_print", "structws2812b__handle__s.html#a75f9f50c23e87e9407f9ec4e34bb42f2", null ],
+    [ "debug_print", "structws2812b__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b", null ],
     [ "delay_ms", "structws2812b__handle__s.html#a406c9433252b7366de417b7a60915c81", null ],
     [ "inited", "structws2812b__handle__s.html#a19bedf28d2b9748f6a62d9ae93f4e68f", null ],
     [ "spi_10mhz_init", "structws2812b__handle__s.html#ab72348e771a9f761c86d6286d42a1a14", null ],

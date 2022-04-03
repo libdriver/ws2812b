@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_WS2812B_H_
-#define _DRIVER_WS2812B_H_
+#ifndef DRIVER_WS2812B_H
+#define DRIVER_WS2812B_H
 
 #include <stdint.h>
 #include <stdio.h>
@@ -70,7 +70,7 @@ typedef struct ws2812b_handle_s
     uint8_t (*spi_deinit)(void);                                 /**< point to a spi_deinit function address */
     uint8_t (*spi_write_cmd)(uint8_t *buf, uint16_t len);        /**< point to a spi_write_cmd function address */
     void (*delay_ms)(uint32_t ms);                               /**< point to a delay_ms function address */
-    uint16_t (*debug_print)(char *fmt, ...);                     /**< point to a debug_print function address */
+    void (*debug_print)(const char *const fmt, ...);             /**< point to a debug_print function address */
     uint8_t inited;                                              /**< inited flag */
 } ws2812b_handle_t;
 
@@ -260,7 +260,7 @@ uint8_t ws2812b_write_only_color(ws2812b_handle_t *handle, uint32_t *rgb, uint32
  *            - 3 handle is not initialized
  * @note      none
  */
-uint8_t ws2812b_set_reg(ws2812b_handle_t *handle, uint8_t *buf, uint32_t len);
+uint8_t ws2812b_set_reg(ws2812b_handle_t *handle, uint8_t *buf, uint16_t len);
 
 /**
  * @}

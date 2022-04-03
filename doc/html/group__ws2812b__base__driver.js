@@ -1,7 +1,7 @@
 var group__ws2812b__base__driver =
 [
     [ "ws2812b_handle_s", "structws2812b__handle__s.html", [
-      [ "debug_print", "structws2812b__handle__s.html#a75f9f50c23e87e9407f9ec4e34bb42f2", null ],
+      [ "debug_print", "structws2812b__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b", null ],
       [ "delay_ms", "structws2812b__handle__s.html#a406c9433252b7366de417b7a60915c81", null ],
       [ "inited", "structws2812b__handle__s.html#a19bedf28d2b9748f6a62d9ae93f4e68f", null ],
       [ "spi_10mhz_init", "structws2812b__handle__s.html#ab72348e771a9f761c86d6286d42a1a14", null ],
@@ -25,7 +25,7 @@ var group__ws2812b__base__driver =
     [ "ws2812b_deinit", "group__ws2812b__base__driver.html#ga6fa1311ef2353ea55c58aa3bd7033e22", null ],
     [ "ws2812b_info", "group__ws2812b__base__driver.html#ga2d68712e7e7d1b8f8329217f7a153bc6", null ],
     [ "ws2812b_init", "group__ws2812b__base__driver.html#gae6fbb749585737a343245f99a12541ee", null ],
-    [ "ws2812b_set_reg", "group__ws2812b__base__driver.html#ga93532207a3a0827fa4821b2165a69717", null ],
+    [ "ws2812b_set_reg", "group__ws2812b__base__driver.html#gaf9000e2cf8036d77c73d9131f8e8e495", null ],
     [ "ws2812b_write", "group__ws2812b__base__driver.html#ga60effc5b5f3a3326ffaa3a856629d264", null ],
     [ "ws2812b_write_only_color", "group__ws2812b__base__driver.html#gac6fd3f9b02dff6d25690de921ae3e021", null ],
     [ "ws2812b_write_only_reset", "group__ws2812b__base__driver.html#ga52fb81e9ec621b4c44624a0a35a182df", null ]
