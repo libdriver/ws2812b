@@ -1,4 +1,4 @@
-[English](/README.md) | [ 简体中文](/README_zh-hans.md) | [繁體中文](/README_zh-hant.md) | [日本語](/README_ja.md) | [Deutsch](/README_de.md) | [한국어](/README_ko.md)
+[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md) | [日本語](/README_ja.md) | [Deutsch](/README_de.md) | [한국어](/README_ko.md)
 
 <div align=center>
 <img src="/doc/image/logo.png"/>
@@ -21,7 +21,7 @@ LibDriver WS2812B ist der voll funktionsfähige Treiber von ws2812b, der von Lib
   - [Dokument](#Dokument)
   - [Beitrag](#Beitrag)
   - [Lizenz](#Lizenz)
-  - [Kontaktieren Sie uns](#Kontaktieren Sie uns)
+  - [kontaktiere uns](#kontaktiere uns)
 
 ### Anweisung
 
@@ -143,6 +143,6 @@ AUS ODER IM ZUSAMMENHANG MIT DER SOFTWARE ODER DER VERWENDUNG ODER ANDEREN HANDL
 
 SOFTWARE.
 
-### Kontaktieren Sie uns
+### kontaktiere uns
 
 Bitte senden Sie eine E-Mail an lishifenging@outlook.com
