@@ -5,12 +5,12 @@
 </div>
 
 ## LibDriver WS2812B
-[![MISRA](https://img.shields.io/badge/misra-compliance-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/ws2812b/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE) 
+[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/ws2812b/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE) 
 
 WS2812B ist eine intelligente Steuer-LED-Lichtquelle, bei der die Steuerschaltung und der RGB-Chip in einem Paket von 5050-Komponenten integriert sind. Sie enthält intern einen intelligenten digitalen Port-Datenlatch und eine Signalumformungs-Verstärkungstreiberschaltung. Enthält auch einen präzisen internen Oszillator und eine spannungsprogrammierbare Konstante Stromsteuerteil, wodurch die Lichtfarbe der Pixelpunkte effektiv sichergestellt wird. Das Datenübertragungsprotokoll verwendet einen einzelnen NZR-Kommunikationsmodus. Nach dem Zurücksetzen des Pixels beim Einschalten empfängt der DIN-Anschluss Daten vom Controller, das erste Pixel sammelt anfängliche 24-Bit-Daten, die dann an das interne Datenlatch gesendet werden, die anderen Daten, die
 Umformung durch die interne Signalumformungs-Verstärkungsschaltung, die durch den DO-Anschluss an das nächste Kaskadenpixel gesendet wird. Nach der Übertragung wird für jeden Pixel das Signal auf 24bit reduziert. Pixel übernehmen die automatische Umformungsübertragungstechnologie, wodurch die Pixelkaskadenzahl nicht auf die Signalübertragung beschränkt ist, sondern nur von der Geschwindigkeit der Signalübertragung abhängt. RESET-Zeit> 280 μs, es verursacht kein falsches Zurücksetzen während der Unterbrechung, es unterstützt die niedrigere Frequenz und ist kostengünstig MCU.Refresh-Frequenz-Updates auf 2 kHz, niedrige Bildfrequenz und kein Flimmern erscheinen in der HD-Videokamera, es verbessert den hervorragenden Anzeigeeffekt. LED mit niedriger Betriebsspannung, Umweltschutz und Energieeinsparung, hohe Helligkeit, Streuwinkel ist groß, gute Konsistenz, niedrig Leistung, lange Lebensdauer und andere Vorteile. Der oben in die LED integrierte Steuerchip wird zu einer einfacheren Schaltung, einem geringen Volumen und einer bequemen Installation.
 
-LibDriver WS2812B ist der voll funktionsfähige Treiber von ws2812b, der von LibDriver gestartet wurde. WS2812B bietet LED-Schreiben und andere Funktionen.
+LibDriver WS2812B ist der volle Funktionstreiber von ws2812b gestartet von LibDriver. WS2812B bietet LED-Schreiben und andere Funktionen und LibDriver ist MISRA-konform.
 
 ### Inhaltsverzeichnis
 
