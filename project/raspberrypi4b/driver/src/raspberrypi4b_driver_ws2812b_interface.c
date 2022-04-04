@@ -112,12 +112,5 @@ void ws2812b_interface_debug_print(const char *const fmt, ...)
     va_end(args);
     
     len = strlen((char *)str);
-    if (printf((uint8_t *)str, len) < 0)
-    {
-        return;
-    }
-    else
-    { 
-        return;
-    }
+    (void)printf((uint8_t *)str, len);
 }
