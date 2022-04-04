@@ -48,4 +48,4 @@ LibDriver complies with MISRA standard with deviation.Libdriver complies with al
 
 ### Report
 
-Detailed reports can be found in /misra/MISRA report.pdf.
+Detailed reports can be found in /misra/Polyspace report.pdf.
