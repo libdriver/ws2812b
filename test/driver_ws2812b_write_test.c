@@ -52,11 +52,11 @@ static uint32_t gs_rgb[21];               /**< inner rgb buffer */
  */
 uint8_t ws2812b_read_test(uint32_t cnt, uint32_t times)
 {
-    volatile uint8_t res;
-    volatile uint8_t num;
-    volatile uint32_t i, j;
+    uint8_t res;
+    uint32_t num;
+    uint32_t i, j;
     ws2812b_info_t info;
-    const uint32_t color[7] = {0xFF0000, 0xFF7F00, 0xFFFF00, 0x00FF00, 0x00FFFF, 0x0000FF, 0x8F00FF};
+    const uint32_t color[7] = {0xFF0000U, 0xFF7F00U, 0xFFFF00U, 0x00FF00U, 0x00FFFFU, 0x0000FFU, 0x8F00FFU};
     
     /* link interface function */
     DRIVER_WS2812B_LINK_INIT(&gs_handle, ws2812b_handle_t);
@@ -68,7 +68,7 @@ uint8_t ws2812b_read_test(uint32_t cnt, uint32_t times)
     
     /* get information */
     res = ws2812b_info(&info);
-    if (res)
+    if (res != 0)
     {
         ws2812b_interface_debug_print("ws2812b: get info failed.\n");
        
@@ -105,7 +105,7 @@ uint8_t ws2812b_read_test(uint32_t cnt, uint32_t times)
     
     /* ws2812b initialization */
     res = ws2812b_init(&gs_handle);
-    if (res)
+    if (res != 0)
     {
         ws2812b_interface_debug_print("ws2812b: init failed.\n");
        
@@ -122,10 +122,10 @@ uint8_t ws2812b_read_test(uint32_t cnt, uint32_t times)
             gs_rgb[j] = color[i % 7];
         }
         res = ws2812b_write(&gs_handle, (uint32_t *)gs_rgb, num, gs_buffer, 1024);
-        if (res)
+        if (res != 0)
         {
             ws2812b_interface_debug_print("ws2812b: write failed.\n");
-            ws2812b_deinit(&gs_handle);
+            (void)ws2812b_deinit(&gs_handle);
            
             return 1;
         }
@@ -143,10 +143,10 @@ uint8_t ws2812b_read_test(uint32_t cnt, uint32_t times)
         gs_rgb[j] = 0x00;
     }
     res = ws2812b_write(&gs_handle, (uint32_t *)gs_rgb, num, gs_buffer, 1024);
-    if (res)
+    if (res != 0)
     {
         ws2812b_interface_debug_print("ws2812b: write failed.\n");
-        ws2812b_deinit(&gs_handle);
+        (void)ws2812b_deinit(&gs_handle);
        
         return 1;
     }
@@ -155,7 +155,7 @@ uint8_t ws2812b_read_test(uint32_t cnt, uint32_t times)
     ws2812b_interface_debug_print("ws2812b: finish register test.\n");
     
     /* close the chip */
-    ws2812b_deinit(&gs_handle);
+    (void)ws2812b_deinit(&gs_handle);
     
     return 0;
 }

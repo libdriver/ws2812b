@@ -34,8 +34,8 @@
  * </table>
  */
 
-#ifndef _DRIVER_WS2812B_WRITE_TEST_H_
-#define _DRIVER_WS2812B_WRITE_TEST_H_
+#ifndef DRIVER_WS2812B_WRITE_TEST_H
+#define DRIVER_WS2812B_WRITE_TEST_H
 
 #include "driver_ws2812b_interface.h"
 

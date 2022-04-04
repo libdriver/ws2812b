@@ -89,8 +89,8 @@ $(document).ready(function(){initNavTree('driver__ws2812b__interface_8h_source.h
 </div><!--header-->
 <div class="contents">
 <a href="driver__ws2812b__interface_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160; </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifndef _DRIVER_WS2812B_INTERFACE_H_</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define _DRIVER_WS2812B_INTERFACE_H_</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifndef DRIVER_WS2812B_INTERFACE_H</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#define DRIVER_WS2812B_INTERFACE_H</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="driver__ws2812b_8h.html">driver_ws2812b.h</a>&quot;</span></div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
@@ -106,15 +106,15 @@ $(document).ready(function(){initNavTree('driver__ws2812b__interface_8h_source.h
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__ws2812b__interface__driver.html#gafbc8bb115b98f6821e9abcecc8df4e94">ws2812b_interface_delay_ms</a>(uint32_t ms);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;uint16_t <a class="code" href="group__ws2812b__interface__driver.html#ga013d29331b92faad80331638c241e7d8">ws2812b_interface_debug_print</a>(<span class="keywordtype">char</span> *fmt, ...);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">void</span> <a class="code" href="group__ws2812b__interface__driver.html#ga06272a71df762b39a7a55770ed0784d1">ws2812b_interface_debug_print</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *<span class="keyword">const</span> fmt, ...);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;}</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="adriver__ws2812b_8h_html"><div class="ttname"><a href="driver__ws2812b_8h.html">driver_ws2812b.h</a></div><div class="ttdoc">driver ws2812b header file</div></div>
-<div class="ttc" id="agroup__ws2812b__interface__driver_html_ga013d29331b92faad80331638c241e7d8"><div class="ttname"><a href="group__ws2812b__interface__driver.html#ga013d29331b92faad80331638c241e7d8">ws2812b_interface_debug_print</a></div><div class="ttdeci">uint16_t ws2812b_interface_debug_print(char *fmt,...)</div><div class="ttdoc">interface print format data</div><div class="ttdef"><b>Definition:</b> <a href="driver__ws2812b__interface__template_8c_source.html#l00093">driver_ws2812b_interface_template.c:93</a></div></div>
+<div class="ttc" id="agroup__ws2812b__interface__driver_html_ga06272a71df762b39a7a55770ed0784d1"><div class="ttname"><a href="group__ws2812b__interface__driver.html#ga06272a71df762b39a7a55770ed0784d1">ws2812b_interface_debug_print</a></div><div class="ttdeci">void ws2812b_interface_debug_print(const char *const fmt,...)</div><div class="ttdoc">interface print format data</div><div class="ttdef"><b>Definition:</b> <a href="driver__ws2812b__interface__template_8c_source.html#l00092">driver_ws2812b_interface_template.c:92</a></div></div>
 <div class="ttc" id="agroup__ws2812b__interface__driver_html_ga4a5339883cb90bc06763b2cd5d0c97fc"><div class="ttname"><a href="group__ws2812b__interface__driver.html#ga4a5339883cb90bc06763b2cd5d0c97fc">ws2812b_interface_spi_write_cmd</a></div><div class="ttdeci">uint8_t ws2812b_interface_spi_write_cmd(uint8_t *buf, uint16_t len)</div><div class="ttdoc">interface spi bus write command</div><div class="ttdef"><b>Definition:</b> <a href="driver__ws2812b__interface__template_8c_source.html#l00072">driver_ws2812b_interface_template.c:72</a></div></div>
 <div class="ttc" id="agroup__ws2812b__interface__driver_html_ga6ae146c64fb745f2d0d2b6c8ac1ac39e"><div class="ttname"><a href="group__ws2812b__interface__driver.html#ga6ae146c64fb745f2d0d2b6c8ac1ac39e">ws2812b_interface_spi_10mhz_init</a></div><div class="ttdeci">uint8_t ws2812b_interface_spi_10mhz_init(void)</div><div class="ttdoc">interface spi 10mhz bus init</div><div class="ttdef"><b>Definition:</b> <a href="driver__ws2812b__interface__template_8c_source.html#l00046">driver_ws2812b_interface_template.c:46</a></div></div>
 <div class="ttc" id="agroup__ws2812b__interface__driver_html_gada66d175cfd4373710ce36097b93cc06"><div class="ttname"><a href="group__ws2812b__interface__driver.html#gada66d175cfd4373710ce36097b93cc06">ws2812b_interface_spi_deinit</a></div><div class="ttdeci">uint8_t ws2812b_interface_spi_deinit(void)</div><div class="ttdoc">interface spi bus deinit</div><div class="ttdef"><b>Definition:</b> <a href="driver__ws2812b__interface__template_8c_source.html#l00058">driver_ws2812b_interface_template.c:58</a></div></div>

@@ -1,12 +1,11 @@
-[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md)
+[English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md) | [日本語](/README_ja.md) | [Deutsch](/README_de.md) | [한국어](/README_ko.md)
 
 <div align=center>
 <img src="/doc/image/logo.png"/>
 </div>
 
 ## LibDriver WS2812B
-
-[![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/ws2812b/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
+[![MISRA](https://img.shields.io/badge/misra-compliance-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/ws2812b/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE) 
 
 WS2812B is a intelligent control LED light source that the control circuit and RGB chip are integrated in a package of 5050 components.It internal include intelligent digital port data latch and signal reshaping amplification drive circuit.Also include a precision internal oscillator and a voltage programmable constant current control part, effectively ensuring the pixel point light color height consistent.The data transfer protocol use single NZR communication mode. After the pixel power-on reset, the DIN port receive data from controller, the first pixel collect initial 24bit data then sent to the internal data latch, the other data which
 reshaping by the internal signal reshaping amplification circuit sent to the next cascade pixel through the DO port. After transmission for each pixel, the signal to reduce 24bit. pixel adopt auto reshaping transmit technology, making the pixel cascade number is not limited the signal transmission, only depend on the speed of signal transmission.RESET time>280μs , it won't cause wrong reset while interruption, it supports the lower frequency and inexpensive MCU.Refresh Frequency updates to 2KHz, Low Frame Frequency and No Flicker appear in HD Video Camera, it improve excellent display effect.LED with low driving voltage, environmental protection and energy saving, high brightness, scattering angle is large,good consistency, low power, long life and other advantages. The control chip integrated in LED above becoming more simple circuit, small volume, convenient installation.
@@ -51,8 +50,8 @@ Add /src, /interface and /example to your project.
 #### example write
 
 ```C
-volatile uint8_t res;
-volatile uint32_t i;
+uint8_t res;
+uint32_t i;
 static uint32_t gs_rgb[21]; 
 static uint8_t gs_temp[1024];
 
