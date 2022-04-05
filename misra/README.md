@@ -38,7 +38,7 @@ Many MISRA C rules can be characterized as guidelines because under certain cond
 
 LibDriver complies with MISRA standard with deviation.Libdriver complies with all mandatory guidelines and most required guidelines, the deviations are shown in Table 1.
 
-<center>Table 1. Guideline Deviations </center>
+<div align=center> Table 1. Guideline Deviations </div>
 
 | Guideline | Description                                                  | Status       | Explanation                                                  | Severity |
 | --------- | ------------------------------------------------------------ | ------------ | ------------------------------------------------------------ | -------- |
