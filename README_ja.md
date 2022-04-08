@@ -6,7 +6,7 @@
 
 ## LibDriver WS2812B
 
-[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue)](https://www.libdriver.com/docs/ws2812b/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
+[![MISRA](https://img.shields.io/badge/misra-compliant-brightgreen.svg)](/misra/README.md) [![API](https://img.shields.io/badge/api-reference-blue.svg)](https://www.libdriver.com/docs/ws2812b/index.html) [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](/LICENSE)
 
 WS2812Bは、制御回路と照明回路を統合したインテリジェントな外部制御LED光源です。その外観は5050LEDランプビーズと同じであり、各コンポーネントはピクセルです。ピクセルの内部には、インテリジェントなデジタルインターフェースデータラッチ信号の整形と増幅の駆動回路、高精度の内部発振器、プログラム可能な定電流制御部品が含まれており、ピクセルライトの色の一貫性を効果的に確保します。データプロトコルは、シングルラインのゼロ復帰コード通信方式を採用しています。ピクセルの電源を入れてリセットした後、DIN端末はコントローラーから送信されたデータを受け入れます。最初に送信された24ビットデータは、最初のピクセルによって抽出されて送信されます。残りのデータは、内部整形処理回路によって整形および増幅され、DOポートを介して次のカスケードピクセルに転送および出力されます.1ピクセルの送信後、信号は24ビット減少します。ピクセルは自動整形および転送技術を採用しているため、ピクセルのカスケード数は信号伝送によって制限されるのではなく、信号伝送速度の要件によってのみ制限されます。最大2KHzのポートスキャン周波数は、高速モバイル製品の使用に非常に適した高解像度カメラのキャプチャの下でちらつきません。リセット時間が280μsを超えると、割り込みがあっても誤リセットが発生せず、低周波数で安価なMCUに対応できます。 LEDには、低電圧ドライブ、環境保護と省エネ、高輝度、大きな散乱角、優れた一貫性、低電力、長寿命という利点があります。 LEDに制御回路を統合することにより、回路がシンプルになり、体積が小さくなり、設置が容易になります。
 
