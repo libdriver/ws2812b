@@ -57,7 +57,7 @@ static uint8_t gs_temp[1024];
 
 /* init */
 res = ws2812b_basic_init();
-if (res)
+if (res != 0)
 {
     return 1;
 }
@@ -70,16 +70,16 @@ for (i = 0; i < 21; i++)
 
 /* write data */
 res = ws2812b_basic_write(gs_rgb, 21, gs_temp, 1024);
-if (res)
+if (res != 0)
 {
-    ws2812b_basic_deinit();
+    (void)ws2812b_basic_deinit();
 
     return 1;
 }
 
 /* close the chip */
 res = ws2812b_basic_deinit();
-if (res)
+if (res != 0)
 {
     return 1;
 }
