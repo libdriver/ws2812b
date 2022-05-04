@@ -27,15 +27,15 @@ LibDriver WS2812B ist der voll funktionsfähige Treiber von ws2812b, der von Lib
 
 /src enthält LibDriver WS2812B-Quelldateien.
 
-/interface enthält die plattformunabhängige Vorlage LibDriver WS2812B SPI。
+/interface enthält die plattformunabhängige Vorlage LibDriver WS2812B SPI.
 
-/test enthält den Testcode des LibDriver WS2812B-Treibers und dieser Code kann die erforderliche Funktion des Chips einfach testen。
+/test enthält den Testcode des LibDriver WS2812B-Treibers und dieser Code kann die erforderliche Funktion des Chips einfach testen.
 
 /example enthält LibDriver WS2812B-Beispielcode.
 
 /doc enthält das LibDriver WS2812B-Offlinedokument.
 
-/Datenblatt enthält WS2812B-Datenblatt。
+/Datenblatt enthält WS2812B-Datenblatt.
 
 /project enthält den allgemeinen Beispielcode für Linux- und MCU-Entwicklungsboards. Alle Projekte verwenden das Shell-Skript, um den Treiber zu debuggen, und die detaillierten Anweisungen finden Sie in der README.md jedes Projekts.
 
