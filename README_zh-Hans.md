@@ -50,6 +50,8 @@ LibDriver WS2812B是LibDriver推出的WS2812B的全功能驱动，该驱动提�
 #### example write
 
 ```C
+#include "driver_ws2812b_basic.h"
+
 uint8_t res;
 uint32_t i;
 static uint32_t gs_rgb[21]; 

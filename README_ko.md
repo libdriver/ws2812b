@@ -50,6 +50,8 @@ LibDriver WS2812B는 LibDriver에서 출시한 ws2812b의 전체 기능 드라�
 #### example write
 
 ```C
+#include "driver_ws2812b_basic.h"
+
 uint8_t res;
 uint32_t i;
 static uint32_t gs_rgb[21]; 

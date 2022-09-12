@@ -50,6 +50,8 @@ Fügen Sie /src, /interface und /example zu Ihrem Projekt hinzu.
 #### example write
 
 ```C
+#include "driver_ws2812b_basic.h"
+
 uint8_t res;
 uint32_t i;
 static uint32_t gs_rgb[21]; 
