@@ -27,15 +27,15 @@ LibDriver WS2812B is the full function driver of ws2812b  launched by LibDriver.
 
 /src includes LibDriver WS2812B source files.
 
-/interface includes LibDriver WS2812B SPI platform independent template。
+/interface includes LibDriver WS2812B SPI platform independent template.
 
-/test includes LibDriver WS2812B driver test code and this code can test the chip necessary function simply。
+/test includes LibDriver WS2812B driver test code and this code can test the chip necessary function simply.
 
 /example includes LibDriver WS2812B sample code.
 
 /doc includes LibDriver WS2812B offline document.
 
-/datasheet includes WS2812B datasheet。
+/datasheet includes WS2812B datasheet.
 
 /project includes the common Linux and MCU development board sample code. All projects use the shell script to debug the driver and the detail instruction can be found in each project's README.md.
 
@@ -50,6 +50,8 @@ Add /src, /interface and /example to your project.
 #### example write
 
 ```C
+#include "driver_ws2812b_basic.h"
+
 uint8_t res;
 uint32_t i;
 static uint32_t gs_rgb[21]; 

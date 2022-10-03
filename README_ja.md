@@ -50,6 +50,8 @@ LibDriver WS2812Bは、LibDriverによって起動されたws2812bの全機能�
 #### example write
 
 ```C
+#include "driver_ws2812b_basic.h"
+
 uint8_t res;
 uint32_t i;
 static uint32_t gs_rgb[21]; 
