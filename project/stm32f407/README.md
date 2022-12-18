@@ -2,43 +2,73 @@
 
 #### 1.1 Chip Info
 
-chip name : STM32F407ZGT6.
+Chip Name: STM32F407ZGT6.
 
-extern oscillator : 8MHz.
+Extern Oscillator: 8MHz.
 
-uart pin: TX/RX PA9/PA10.
+UART Pin: TX/RX PA9/PA10.
 
-spi pin: SCK/MISO/MOSI/CS  PA5/PA6/PA7/PA4.
+SPI Pin: SCK/MISO/MOSI/CS  PA5/PA6/PA7/PA4.
 
-### 2. Shell
+### 2. Development and Debugging
 
-#### 2.1 Shell Parameter
+#### 2.1 Integrated Development Environment
 
-baud rate: 115200.
+LidDriver provides both Keil and IAR integrated development environment projects.
 
-data bits : 8.
+MDK is the Keil ARM project and your Keil version must be 5 or higher.Keil ARM project needs STMicroelectronics STM32F4 Series Device Family Pack and you can download from https://www.keil.com/dd2/stmicroelectronics/stm32f407zgtx.
 
-stop bits: 1.
+EW is the IAR ARM project and your IAR version must be 9 or higher.
 
-parity: none.
+#### 2.2 Serial Port Parameter
 
-flow control: none.
+Baud Rate: 115200.
+
+Data Bits : 8.
+
+Stop Bits: 1.
+
+Parity: None.
+
+Flow Control: None.
+
+#### 2.3 Serial Port Assistant
+
+We use '\n' to wrap lines.If your serial port assistant displays exceptions (e.g. the displayed content does not divide lines), please modify the configuration of your serial port assistant or replace one that supports '\n' parsing.
 
 ### 3. WS2812B
 
 #### 3.1 Command Instruction
 
-​          ws2812b is a basic command which can test all ws2812b driver function:
+1. Show ws2812b chip and driver information.
 
-​           -i        show ws2812b chip and driver information.
+   ```shell
+   ws2812b (-i | --information)
+   ```
 
-​           -h       show ws2812b help.
+2. Show ws2812b help.
 
-​           -p       show ws2812b pin connections of the current board.
+   ```shell
+   ws2812b (-h | --help)
+   ```
 
-​           -t read <number> <times>       run ws2812b read test. number is the ws2812b chip number and times is the test times.
+3. Show ws2812b pin connections of the current board.
 
-​           -c write <number> <color>       run ws2812b write function.number is the ws2812b chip number and color is the rgb color.
+   ```shell
+   ws2812b (-p | --port)
+   ```
+
+4. Run ws2812b write test, number is the ws2812b chip number and times is the test times.
+
+   ```shell
+   ws2812b (-t write | --test=write) [--number=<number>] [--times=<num>]
+   ```
+
+5. Run ws2812b write function, number is the ws2812b chip number and color is the rgb color.
+
+   ```shell
+   ws2812b (-e write | --example=write) [--number=<number>] [--color=<color>]
+   ```
 
 #### 3.2 Command Example
 
@@ -66,7 +96,7 @@ ws2812b: SPI interface CS connected to GPIOA PIN4.
 ```
 
 ```shell
-ws2812b -t read 12 10
+ws2812b -t write --number=12 --times=10
 
 ws2812b: chip is Worldsemi WS2812B.
 ws2812b: manufacturer is Worldsemi .
@@ -92,7 +122,7 @@ ws2812b: finish register test.
 ```
 
 ```shell
-ws2812b -c write 12 16711680
+ws2812b -e write --number=12 --color=16711680
 
 ws2812b: number is 12 and written color is 0xFF0000.
 ```
@@ -100,15 +130,21 @@ ws2812b: number is 12 and written color is 0xFF0000.
 ```shell
 ws2812b -h
 
-ws2812b -i
-	show ws2812b chip and driver information.
-ws2812b -h
-	show ws2812b help.
-ws2812b -p
-	show ws2812b pin connections of the current board.
-ws2812b -t read <number> <times>
-	run ws2812b read test.number is the ws2812b chip number and times is the test times.
-ws2812b -c write <number> <color>
-	run ws2812b write function.number is the ws2812b chip number and color is the rgb color.
+Usage:
+  ws2812b (-i | --information)
+  ws2812b (-h | --help)
+  ws2812b (-p | --port)
+  ws2812b (-t write | --test=write) [--number=<number>] [--times=<num>]
+  ws2812b (-e write | --example=write) [--number=<number>] [--color=<color>]
+
+Options:
+      --color=<color>                Set the chip display color.([default: 16711680])
+  -e <write>, --example=<write>      Run the driver example.
+  -h, --help                         Show the help.
+  -i, --information                  Show the chip information.
+      --number=<number>              Set the chip number.([default: 3])
+  -p, --port                         Display the pin connections of the current board.
+  -t <write>, --test=<write>         Run the driver test.
+      --times=<num>                  Set the running times.([default: 3])
 ```
 

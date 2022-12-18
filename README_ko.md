@@ -1,7 +1,7 @@
 [English](/README.md) | [ 简体中文](/README_zh-Hans.md) | [繁體中文](/README_zh-Hant.md) | [日本語](/README_ja.md) | [Deutsch](/README_de.md) | [한국어](/README_ko.md)
 
 <div align=center>
-<img src="/doc/image/logo.png"/>
+<img src="/doc/image/logo.svg" width="400" height="150"/>
 </div>
 
 ## LibDriver WS2812B
@@ -93,13 +93,13 @@ else
 
 ### 문서
 
-온라인 문서: https://www.libdriver.com/docs/ws2812b/index.html
+온라인 문서: [https://www.libdriver.com/docs/ws2812b/index.html](https://www.libdriver.com/docs/ws2812b/index.html).
 
-오프라인 문서: /doc/html/index.html
+오프라인 문서: /doc/html/index.html.
 
 ### 기고
 
-연락주세요lishifenging@outlook.com
+CONTRIBUTING.md 를 참조하십시오.
 
 ### 저작권
 
@@ -115,4 +115,4 @@ MIT 라이선스(MIT)
 
 ### 문의하기
 
-연락주세요lishifenging@outlook.com
+연락주세요lishifenging@outlook.com.

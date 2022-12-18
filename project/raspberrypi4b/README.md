@@ -1,10 +1,10 @@
-### 1. Chip
+### 1. Board
 
-#### 1.1 Chip Info
+#### 1.1 Board Info
 
-chip name : Raspberry Pi 4B.
+Board Name: Raspberry Pi 4B.
 
-spi pin: SCLK/MOSI/MISO/CS GPIO11/GPIO10/GPIO9/GPIO8.
+SPI Pin: SCLK/MOSI/MISO/CS GPIO11/GPIO10/GPIO9/GPIO8.
 
 ### 2. Install
 
@@ -75,17 +75,35 @@ find_package(ws2812b REQUIRED)
 
 #### 3.1 Command Instruction
 
-​          ws2812b is a basic command which can test all ws2812b driver function:
+1. Show ws2812b chip and driver information.
 
-​           -i        show ws2812b chip and driver information.
+   ```shell
+   ws2812b (-i | --information)
+   ```
 
-​           -h       show ws2812b help.
+2. Show ws2812b help.
 
-​           -p       show ws2812b pin connections of the current board.
+   ```shell
+   ws2812b (-h | --help)
+   ```
 
-​           -t read <number> <times>       run ws2812b read test. number is the ws2812b chip number and times is the test times.
+3. Show ws2812b pin connections of the current board.
 
-​           -c write <number> <color>       run ws2812b write function.number is the ws2812b chip number and color is the rgb color.
+   ```shell
+   ws2812b (-p | --port)
+   ```
+
+4. Run ws2812b write test, number is the ws2812b chip number and times is the test times.
+
+   ```shell
+   ws2812b (-t write | --test=write) [--number=<number>] [--times=<num>]
+   ```
+
+5. Run ws2812b write function, number is the ws2812b chip number and color is the rgb color.
+
+   ```shell
+   ws2812b (-e write | --example=write) [--number=<number>] [--color=<color>]
+   ```
 
 #### 3.2 Command Example
 
@@ -100,7 +118,6 @@ ws2812b: min supply voltage is 3.7V.
 ws2812b: max supply voltage is 5.3V.
 ws2812b: max current is 16.00mA.
 ws2812b: max temperature is 85.0C.
-ws2812b: min temperature is -25.0C.
 ```
 
 ```shell
@@ -113,7 +130,7 @@ ws2812b: SPI interface CS connected to GPIO8(BCM).
 ```
 
 ```shell
-./ws2812b -t read 12 10
+./ws2812b -t write --number=12 --times=10
 
 ws2812b: chip is Worldsemi WS2812B.
 ws2812b: manufacturer is Worldsemi .
@@ -139,7 +156,7 @@ ws2812b: finish register test.
 ```
 
 ```shell
-./ws2812b -c write 12 16711680
+./ws2812b -e write --number=12 --color=16711680
 
 ws2812b: number is 12 and written color is 0xFF0000.
 ```
@@ -147,15 +164,21 @@ ws2812b: number is 12 and written color is 0xFF0000.
 ```shell
 ./ws2812b -h
 
-ws2812b -i
-	show ws2812b chip and driver information.
-ws2812b -h
-	show ws2812b help.
-ws2812b -p
-	show ws2812b pin connections of the current board.
-ws2812b -t read <number> <times>
-	run ws2812b read test.number is the ws2812b chip number and times is the test times.
-ws2812b -c write <number> <color>
-	run ws2812b write function.number is the ws2812b chip number and color is the rgb color.
+Usage:
+  ws2812b (-i | --information)
+  ws2812b (-h | --help)
+  ws2812b (-p | --port)
+  ws2812b (-t write | --test=write) [--number=<number>] [--times=<num>]
+  ws2812b (-e write | --example=write) [--number=<number>] [--color=<color>]
+
+Options:
+      --color=<color>                Set the chip display color.([default: 16711680])
+  -e <write>, --example=<write>      Run the driver example.
+  -h, --help                         Show the help.
+  -i, --information                  Show the chip information.
+      --number=<number>              Set the chip number.([default: 3])
+  -p, --port                         Display the pin connections of the current board.
+  -t <write>, --test=<write>         Run the driver test.
+      --times=<num>                  Set the running times.([default: 3])
 ```
 

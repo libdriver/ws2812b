@@ -51,7 +51,7 @@ extern "C" {
  */
 
 /**
- * @brief     read test
+ * @brief     write test
  * @param[in] cnt is the number of the ws2812b led
  * @param[in] times is the test times
  * @return    status code
@@ -59,7 +59,7 @@ extern "C" {
  *            - 1 test failed
  * @note      none
  */
-uint8_t ws2812b_read_test(uint32_t cnt, uint32_t times);
+uint8_t ws2812b_write_test(uint32_t cnt, uint32_t times);
 
 /**
  * @}
