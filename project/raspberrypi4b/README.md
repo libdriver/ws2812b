@@ -93,7 +93,7 @@ find_package(ws2812b REQUIRED)
    ws2812b (-p | --port)
    ```
 
-4. Run ws2812b write test, number is the ws2812b chip number and times is the test times.
+4. Run ws2812b write test, number is the ws2812b chip number and num is the test times.
 
    ```shell
    ws2812b (-t write | --test=write) [--number=<number>] [--times=<num>]
