@@ -39,6 +39,8 @@ LibDriver WS2812B is the full function driver of ws2812b  launched by LibDriver.
 
 /project includes the common Linux and MCU development board sample code. All projects use the shell script to debug the driver and the detail instruction can be found in each project's README.md.
 
+/misra includes the LibDriver MISRA code scanning results.
+
 ### Install
 
 Reference /interface SPI platform independent template and finish your platform SPI driver.
