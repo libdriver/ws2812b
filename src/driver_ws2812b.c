@@ -203,8 +203,8 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
         return 5;                                                           /* return error */
     }
     
-    bit_size = WS2812B_RESET_BIT_FRAME_LEN;                                 /* set bit size */
-    bit_size = bit_size / 8;                                                /* set bit size */
+    bit_size = WS2812B_RESET_BIT_FRAME_LEN;                                 /* set the bit size */
+    bit_size = bit_size / 8;                                                /* set the bit size */
     if (bit_size > temp_len)                                                /* check temp length */
     {
         handle->debug_print("ws2812b: temp buffer is too small and "
@@ -223,8 +223,8 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
         return 1;                                                           /* return error */
     }
     
-    bit_size = 24 * 16 * len ;                                              /* set bit size */
-    bit_size = bit_size / 8;                                                /* set bit size */
+    bit_size = 24 * 16 * len ;                                              /* set the bit size */
+    bit_size = bit_size / 8;                                                /* set the bit size */
     if (bit_size > temp_len)                                                /* check temp length */
     {
         handle->debug_print("ws2812b: temp buffer is too small and "
@@ -281,8 +281,8 @@ uint8_t ws2812b_write_only_reset(ws2812b_handle_t *handle, uint8_t *temp, uint32
         return 4;                                                           /* return error */
     }
     
-    bit_size = WS2812B_RESET_BIT_FRAME_LEN;                                 /* set bit size */
-    bit_size = bit_size / 8;                                                /* set bit size */
+    bit_size = WS2812B_RESET_BIT_FRAME_LEN;                                 /* set the bit size */
+    bit_size = bit_size / 8;                                                /* set the bit size */
     if (bit_size > temp_len)                                                /* check temp length */
     {
         handle->debug_print("ws2812b: temp buffer is too small and "
@@ -348,8 +348,8 @@ uint8_t ws2812b_write_only_color(ws2812b_handle_t *handle, uint32_t *rgb, uint32
         return 5;                                                           /* return error */
     }
     
-    bit_size = 24 * 16 * len ;                                              /* set bit size */
-    bit_size = bit_size / 8;                                                /* set bit size */
+    bit_size = 24 * 16 * len ;                                              /* set the bit size */
+    bit_size = bit_size / 8;                                                /* set the bit size */
     if (bit_size > temp_len)                                                /* check temp length */
     {
         handle->debug_print("ws2812b: temp buffer is too small and "
@@ -458,7 +458,7 @@ uint8_t ws2812b_info(ws2812b_info_t *info)
     info->max_current_ma = MAX_CURRENT;                             /* set maximum current */
     info->temperature_max = TEMPERATURE_MAX;                        /* set minimal temperature */
     info->temperature_min = TEMPERATURE_MIN;                        /* set maximum temperature */
-    info->driver_version = DRIVER_VERSION;                          /* set driver verison */
+    info->driver_version = DRIVER_VERSION;                          /* set driver version */
     
     return 0;                                                       /* success return 0 */
 }
