@@ -137,7 +137,7 @@ uint8_t ws2812b_write_test(uint32_t cnt, uint32_t times)
         ws2812b_interface_debug_print("ws2812b: %d/%d times.\n", i + 1, times);
     }
     
-    /* close all leds */
+    /* close all LEDs */
     for (j = 0; j < num; j++)
     {
         gs_rgb[j] = 0x00;

@@ -78,7 +78,7 @@ uint8_t ws2812b(uint8_t argc, char **argv)
         {"times", required_argument, NULL, 3},
         {NULL, 0, NULL, 0},
     };
-    char type[33] = "unknow";
+    char type[33] = "unknown";
     uint32_t times = 3;
     uint32_t color = 16711680;
     uint32_t number = 3;
@@ -330,7 +330,7 @@ int main(void)
     /* uart init */
     uart_init(115200);
     
-    /* shell init && register ws2812b fuction */
+    /* shell init && register ws2812b function */
     shell_init();
     shell_register("ws2812b", ws2812b);
     uart_print("ws2812b: welcome to libdriver ws2812b.\n");
@@ -353,7 +353,7 @@ int main(void)
             }
             else if (res == 2)
             {
-                uart_print("ws2812b: unknow command.\n");
+                uart_print("ws2812b: unknown command.\n");
             }
             else if (res == 3)
             {
@@ -369,7 +369,7 @@ int main(void)
             }
             else
             {
-                uart_print("ws2812b: unknow status code.\n");
+                uart_print("ws2812b: unknown status code.\n");
             }
             uart_flush();
         }

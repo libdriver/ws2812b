@@ -72,7 +72,7 @@ uint8_t ws2812b(uint8_t argc, char **argv)
         {"times", required_argument, NULL, 3},
         {NULL, 0, NULL, 0},
     };
-    char type[33] = "unknow";
+    char type[33] = "unknown";
     uint32_t times = 3;
     uint32_t color = 16711680;
     uint32_t number = 3;
@@ -334,7 +334,7 @@ int main(uint8_t argc, char **argv)
     }
     else
     {
-        ws2812b_interface_debug_print("ws2812b: unknow status code.\n");
+        ws2812b_interface_debug_print("ws2812b: unknown status code.\n");
     }
 
     return 0;
