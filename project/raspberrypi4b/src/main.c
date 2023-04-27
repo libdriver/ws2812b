@@ -222,22 +222,27 @@ uint8_t ws2812b(uint8_t argc, char **argv)
             return 1;
         }
         
-        /* write color */
-        for (i = 0; i < number; i++)
-        {
-            gs_rgb[i] = color;
-        }
-        
-        /* print */
-        ws2812b_interface_debug_print("ws2812b: number is %d and written color is 0x%X.\n", number, color);
-        
-        /* write data */
-        res = ws2812b_basic_write(gs_rgb, number, gs_temp, 1024);
-        if (res != 0)
-        {
-            (void)ws2812b_basic_deinit();
+        for (int g = 0 ; g < 1000; g++) {
             
-            return 1;
+            /* write color */
+            for (i = 0; i < number; i++)
+            {
+                gs_rgb[i] = g % 2 == 0 ? color : 0;
+            }
+
+            /* print */
+            ws2812b_interface_debug_print("ws2812b: number is %d and written color is 0x%X.\n", number, color);
+
+            /* write data */
+            res = ws2812b_basic_write(gs_rgb, number, gs_temp, 1024);
+            if (res != 0)
+            {
+                (void)ws2812b_basic_deinit();
+
+                return 1;
+            }
+            
+            ws2812b_interface_delay_ms(10);
         }
         
         /* close the chip */
