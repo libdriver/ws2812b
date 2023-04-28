@@ -68,9 +68,9 @@ uint8_t ws2812b_init(ws2812b_handle_t *handle)
     {
         return 3;                                                        /* return error */
     }
-    if (handle->spi_10mhz_init == NULL)                                  /* check spi_10mhz_init */
+    if (handle->spi_init == NULL)                                  /* check spi_10mhz_init */
     {
-        handle->debug_print("ws2812b: spi_10mhz_init is null.\n");       /* spi_10mhz_init is null */
+        handle->debug_print("ws2812b: spi_init is null.\n");       /* spi_10mhz_init is null */
        
         return 3;                                                        /* return error */
     }
@@ -86,6 +86,18 @@ uint8_t ws2812b_init(ws2812b_handle_t *handle)
        
         return 3;                                                        /* return error */
     }
+    if (handle->one_code == NULL)                                      /* check spi_deinit */
+    {
+        handle->debug_print("ws2812b: one_code is null.\n");           /* spi_deinit is null */
+       
+        return 3;                                                        /* return error */
+    }
+    if (handle->zero_code == NULL)                                      /* check spi_deinit */
+    {
+        handle->debug_print("ws2812b: zero_code is null.\n");           /* spi_deinit is null */
+       
+        return 3;                                                        /* return error */
+    }
     if (handle->delay_ms == NULL)                                        /* check delay_ms */
     {
         handle->debug_print("ws2812b: delay_ms is null.\n");             /* delay_ms is null */
@@ -93,7 +105,7 @@ uint8_t ws2812b_init(ws2812b_handle_t *handle)
         return 3;                                                        /* return error */
     }
     
-    if (handle->spi_10mhz_init() != 0)                                   /* spi init */
+    if (handle->spi_init() != 0)                                   /* spi init */
     {
         handle->debug_print("ws2812b: spi init failed.\n");              /* spi init failed */
        
@@ -110,13 +122,11 @@ uint8_t ws2812b_init(ws2812b_handle_t *handle)
  * @param[in] *temp points to a temp buffer
  * @note      none
  */
-static void a_ws2812b_write_one_frame(uint32_t rgb, uint8_t temp[48])
+static void a_ws2812b_write_one_frame(uint32_t rgb, uint8_t temp[48], const uint16_t one_code, const uint16_t zero_code)
 {
     uint8_t r, g, b;
     uint8_t i, j;
     uint32_t c, point;
-    const uint16_t one_code = 0xFFF8U;
-    const uint16_t zero_code = 0xE000U;
     
     r = (uint8_t)((rgb >> 16) & 0xFF);                               /* set red */
     g = (uint8_t)((rgb >> 8) & 0xFF);                                /* set green */
@@ -203,7 +213,7 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
         return 5;                                                           /* return error */
     }
     
-    bit_size = WS2812B_RESET_BIT_FRAME_LEN;                                 /* set the bit size */
+    bit_size = bit_size = 24 * 16 * len;                                    /* set the bit size */
     bit_size = bit_size / 8;                                                /* set the bit size */
     if (bit_size > temp_len)                                                /* check temp length */
     {
@@ -235,7 +245,7 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
    
     for (i = 0; i < len; i++)                                               /* set the color frame */
     {
-        a_ws2812b_write_one_frame(rgb[i], &temp[i * 48]);                   /* set color */
+        a_ws2812b_write_one_frame(rgb[i], &temp[i * 48], handle->one_code(), handle->zero_code());                   /* set color */
     }
     
     if (handle->spi_write_cmd(temp, (uint16_t)bit_size) != 0)               /* write command */
@@ -360,7 +370,7 @@ uint8_t ws2812b_write_only_color(ws2812b_handle_t *handle, uint32_t *rgb, uint32
    
     for (i = 0; i < len; i++)                                               /* set the color frame */
     {
-        a_ws2812b_write_one_frame(rgb[i], &temp[i * 48]);                   /* set color */
+        a_ws2812b_write_one_frame(rgb[i], &temp[i * 48], handle->one_code(), handle->zero_code());                   /* set color */
     }
     
     if (handle->spi_write_cmd(temp, (uint16_t)bit_size) != 0)               /* write command */

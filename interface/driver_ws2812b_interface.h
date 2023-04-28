@@ -57,7 +57,7 @@ extern "C"{
  *         - 1 spi init 10mhz failed
  * @note   none
  */
-uint8_t ws2812b_interface_spi_10mhz_init(void);
+uint8_t ws2812b_interface_spi_init(void);
 
 /**
  * @brief  interface spi bus deinit
@@ -67,6 +67,18 @@ uint8_t ws2812b_interface_spi_10mhz_init(void);
  * @note   none
  */
 uint8_t ws2812b_interface_spi_deinit(void);
+
+/**
+ * @brief  WS1812B One Code bit map
+ * @note   Depends on SPI speed
+ */
+uint16_t ws2812b_interface_one_code(void);
+
+/**
+ * @brief  WS1812B Zero Code bit map
+ * @note   Depends on SPI speed
+ */
+uint16_t ws2812b_interface_zero_code(void);
 
 /**
  * @brief     interface spi bus write command

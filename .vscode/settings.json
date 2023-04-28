@@ -1,0 +1,22 @@
+{
+    "cmake.sourceDirectory": "/root/ws2812b/project/odroidc4",
+    "cmake.debugConfig": {
+        "cwd": "${workspaceFolder}",
+        "args": [
+            "-t", "write",
+            "--number", "24",
+            "--times", "100",
+            // "--color", "0",
+            "--color", "16711680", // red
+            // "--color", "65280", // green
+            // "--color", "255", // blue
+        ],
+    },
+    "files.associations": {
+        "driver_ws2812b_basic.h": "c",
+        "spidev.h": "c",
+        "spi.h": "c",
+        "driver_ws2812b_interface.h": "c",
+        "stdlib.h": "c"
+    }
+}

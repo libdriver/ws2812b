@@ -41,7 +41,7 @@ set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED True)
 
 # set release level
-set(CMAKE_BUILD_TYPE Release)
+# set(CMAKE_BUILD_TYPE Release)
 
 # set the release flags of c
 set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
@@ -205,8 +205,8 @@ add_custom_target(uninstall
                   COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_SOURCE_DIR}/cmake/uninstall.cmake
                  )
 
-# #include ctest module
-# include(CTest)
+#include ctest module
+include(CTest)
 
-# # creat a test
-# add_test(NAME ${CMAKE_PROJECT_NAME}_test COMMAND ${CMAKE_PROJECT_NAME}_exe -p)
+# creat a test
+add_test(NAME ${CMAKE_PROJECT_NAME}_test COMMAND ${CMAKE_PROJECT_NAME}_exe -p)

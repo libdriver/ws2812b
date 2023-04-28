@@ -54,7 +54,7 @@ static int gs_fd;                           /**< spi handle */
  *         - 1 spi init 10mhz failed
  * @note   none
  */
-uint8_t ws2812b_interface_spi_10mhz_init(void)
+uint8_t ws2812b_interface_spi_init(void)
 {
     return spi_init(SPI_DEVICE_NAME, &gs_fd, SPI_MODE_TYPE_3, 1000 * 1000 * 10);
 }
@@ -83,6 +83,24 @@ uint8_t ws2812b_interface_spi_deinit(void)
 uint8_t ws2812b_interface_spi_write_cmd(uint8_t *buf, uint16_t len)
 {
     return spi_write_cmd(gs_fd, buf, len);
+}
+
+/**
+ * @brief  WS1812B One Code bit map
+ * @note   Depends on SPI speed
+ */
+uint16_t ws2812b_interface_one_code(void)
+{
+    return 0xFFF8U;
+}
+
+/**
+ * @brief  WS1812B Zero Code bit map
+ * @note   Depends on SPI speed
+ */
+uint16_t ws2812b_interface_zero_code(void)
+{
+    return 0xE000U;
 }
 
 /**
