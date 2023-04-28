@@ -21,8 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE. 
  *
- * @file      driver_ws2812b_interface_template.c
- * @brief     driver ws2812b interface template source file
+ * @file      odroidc4_driver_ws2812b_interface.c
+ * @brief     odroidc4 driver ws2812b interface source file
  * @version   1.0.0
  * @author    Shifeng Li
  * @date      2021-11-13
@@ -35,6 +35,17 @@
  */
 
 #include "driver_ws2812b_interface.h"
+#include "spi.h"
+#include <stdarg.h>
+
+/**
+ * @brief spi device name definition
+ */
+#define SPI_DEVICE_NAME "/dev/spidev0.0"    /**< spi device name */
+/**
+ * @brief spi device handle definition
+ */
+static int gs_fd;                           /**< spi handle */
 
 /**
  * @brief  interface spi bus init
@@ -45,7 +56,7 @@
  */
 uint8_t ws2812b_interface_spi_init(void)
 {
-    return 0;
+    return spi_init(SPI_DEVICE_NAME, &gs_fd, SPI_MODE_TYPE_3, 1000 * 1000 * 12);
 }
 
 /**
@@ -56,8 +67,8 @@ uint8_t ws2812b_interface_spi_init(void)
  * @note   none
  */
 uint8_t ws2812b_interface_spi_deinit(void)
-{   
-    return 0;
+{
+    return spi_deinit(gs_fd);
 }
 
 /**
@@ -89,7 +100,7 @@ uint16_t ws2812b_interface_zero_code(void)
  */
 uint8_t ws2812b_interface_spi_write_cmd(uint8_t *buf, uint16_t len)
 {
-    return 0;
+    return spi_write_cmd(gs_fd, buf, len);
 }
 
 /**
@@ -99,7 +110,7 @@ uint8_t ws2812b_interface_spi_write_cmd(uint8_t *buf, uint16_t len)
  */
 void ws2812b_interface_delay_ms(uint32_t ms)
 {
-
+    usleep(1000 * ms);
 }
 
 /**
@@ -109,5 +120,15 @@ void ws2812b_interface_delay_ms(uint32_t ms)
  */
 void ws2812b_interface_debug_print(const char *const fmt, ...)
 {
+    char str[256];
+    uint16_t len;
+    va_list args;
     
+    memset((char *)str, 0, sizeof(char) * 256); 
+    va_start(args, fmt);
+    vsnprintf((char *)str, 255, (char const *)fmt, args);
+    va_end(args);
+    
+    len = strlen((char *)str);
+    (void)printf((uint8_t *)str, len);
 }

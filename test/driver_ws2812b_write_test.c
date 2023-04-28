@@ -37,9 +37,13 @@
 #include "driver_ws2812b_write_test.h"
 #include <stdlib.h>
 
+#define LED_COUNT 24
+#define CHANGE_SINGLE_LED 1
+#define TEMP_BUF_SIZE 1152
+
 static ws2812b_handle_t gs_handle;        /**< ws2812b handle */
-static uint8_t gs_buffer[1024];           /**< inner temp buffer */
-static uint32_t gs_rgb[21];               /**< inner rgb buffer */
+static uint8_t gs_buffer[TEMP_BUF_SIZE];           /**< inner temp buffer */
+static uint32_t gs_rgb[LED_COUNT];               /**< inner rgb buffer */
 
 /**
  * @brief     write test
@@ -60,7 +64,9 @@ uint8_t ws2812b_write_test(uint32_t cnt, uint32_t times)
     
     /* link interface function */
     DRIVER_WS2812B_LINK_INIT(&gs_handle, ws2812b_handle_t);
-    DRIVER_WS2812B_LINK_SPI_10MHZ_INIT(&gs_handle, ws2812b_interface_spi_10mhz_init);
+    DRIVER_WS2812B_LINK_SPI_INIT(&gs_handle, ws2812b_interface_spi_init);
+    DRIVER_WS2812B_LINK_ONE_CODE(&gs_handle, ws2812b_interface_one_code);
+    DRIVER_WS2812B_LINK_ZERO_CODE(&gs_handle, ws2812b_interface_zero_code);
     DRIVER_WS2812B_LINK_SPI_DEINIT(&gs_handle, ws2812b_interface_spi_deinit);
     DRIVER_WS2812B_LINK_SPI_WRITE_COMMAND(&gs_handle, ws2812b_interface_spi_write_cmd);
     DRIVER_WS2812B_LINK_DELAY_MS(&gs_handle, ws2812b_interface_delay_ms);
@@ -95,9 +101,9 @@ uint8_t ws2812b_write_test(uint32_t cnt, uint32_t times)
         
         return 1;
     }
-    if (cnt > 21)
+    if (cnt > LED_COUNT)
     {
-        ws2812b_interface_debug_print("ws2812b: cnt is over 21 and use 21.\n");
+        ws2812b_interface_debug_print("ws2812b: cnt is over %d and use %d.\n", LED_COUNT, LED_COUNT);
     }
     
     /* start register test */
@@ -113,15 +119,20 @@ uint8_t ws2812b_write_test(uint32_t cnt, uint32_t times)
     }
     
     /* set number */
-    num = cnt > 21 ? 21 : cnt;
+    num = cnt > LED_COUNT ? LED_COUNT : cnt;
     
     for (i = 0; i < times; i++)
     {
-        for (j = 0; j < num; j++)
-        {
-            gs_rgb[j] = color[i % 7];
+        if (CHANGE_SINGLE_LED) {
+            gs_rgb[i % num] = color[i % 7];
+        } else {
+            for (j = 0; j < num; j++)
+            {
+                gs_rgb[j] = color[i % 7];
+            }
         }
-        res = ws2812b_write(&gs_handle, (uint32_t *)gs_rgb, num, gs_buffer, 1024);
+        
+        res = ws2812b_write(&gs_handle, (uint32_t *)gs_rgb, num, gs_buffer, TEMP_BUF_SIZE);
         if (res != 0)
         {
             ws2812b_interface_debug_print("ws2812b: write failed.\n");
@@ -131,7 +142,7 @@ uint8_t ws2812b_write_test(uint32_t cnt, uint32_t times)
         }
         
         /* delay 1000 ms */
-        ws2812b_interface_delay_ms(1000);
+        ws2812b_interface_delay_ms(50);
         
         /* output */
         ws2812b_interface_debug_print("ws2812b: %d/%d times.\n", i + 1, times);

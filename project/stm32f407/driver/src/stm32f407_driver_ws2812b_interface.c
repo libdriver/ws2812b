@@ -47,7 +47,7 @@
  *         - 1 spi init 10mhz failed
  * @note   none
  */
-uint8_t ws2812b_interface_spi_10mhz_init(void)
+uint8_t ws2812b_interface_spi_init(void)
 {
     return spi_init(SPI_MODE_3);
 }
@@ -62,6 +62,24 @@ uint8_t ws2812b_interface_spi_10mhz_init(void)
 uint8_t ws2812b_interface_spi_deinit(void)
 {   
     return spi_deinit();
+}
+
+/**
+ * @brief  WS1812B One Code bit map
+ * @note   Depends on SPI speed
+ */
+uint16_t ws2812b_interface_one_code(void)
+{
+    return 0xFF00U;
+}
+
+/**
+ * @brief  WS1812B Zero Code bit map
+ * @note   Depends on SPI speed
+ */
+uint16_t ws2812b_interface_zero_code(void)
+{
+    return 0xF000U;
 }
 
 /**

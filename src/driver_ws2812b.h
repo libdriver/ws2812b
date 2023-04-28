@@ -66,9 +66,11 @@ extern "C" {
  */
 typedef struct ws2812b_handle_s
 {
-    uint8_t (*spi_10mhz_init)(void);                             /**< point to a spi_10mhz_init function address */
+    uint8_t (*spi_init)(void);                                   /**< point to a spi_init function address */
     uint8_t (*spi_deinit)(void);                                 /**< point to a spi_deinit function address */
     uint8_t (*spi_write_cmd)(uint8_t *buf, uint16_t len);        /**< point to a spi_write_cmd function address */
+    uint16_t (*one_code)(void);
+    uint16_t (*zero_code)(void);
     void (*delay_ms)(uint32_t ms);                               /**< point to a delay_ms function address */
     void (*debug_print)(const char *const fmt, ...);             /**< point to a debug_print function address */
     uint8_t inited;                                              /**< inited flag */
@@ -110,12 +112,12 @@ typedef struct ws2812b_info_s
 #define DRIVER_WS2812B_LINK_INIT(HANDLE, STRUCTURE)               memset(HANDLE, 0, sizeof(STRUCTURE))
 
 /**
- * @brief     link spi_10mhz_init function
+ * @brief     link spi_init function
  * @param[in] HANDLE points to a ws2812b handle structure
- * @param[in] FUC points to a spi_10mhz_init function address
- * @note      none
+ * @param[in] FUC points to a spi_init function address
+ * @note      Spi speed is limited by ardware and is related to WS1812B one and zero codes
  */
-#define DRIVER_WS2812B_LINK_SPI_10MHZ_INIT(HANDLE, FUC)          (HANDLE)->spi_10mhz_init = FUC
+#define DRIVER_WS2812B_LINK_SPI_INIT(HANDLE, FUC)          (HANDLE)->spi_init = FUC
 
 /**
  * @brief     link spi_deinit function
@@ -132,6 +134,22 @@ typedef struct ws2812b_info_s
  * @note      none
  */
 #define DRIVER_WS2812B_LINK_SPI_WRITE_COMMAND(HANDLE, FUC)       (HANDLE)->spi_write_cmd = FUC
+
+/**
+ * @brief     link one_code function
+ * @param[in] HANDLE points to a ws2812b handle structure
+ * @param[in] FUC points to a one_code function address
+ * @note      Spi speed is limited by ardware and is related to WS1812B one and zero codes
+ */
+#define DRIVER_WS2812B_LINK_ONE_CODE(HANDLE, FUC)          (HANDLE)->one_code = FUC
+
+/**
+ * @brief     link zero_code function
+ * @param[in] HANDLE points to a ws2812b handle structure
+ * @param[in] FUC points to a zero_code function address
+ * @note      Spi speed is limited by ardware and is related to WS1812B one and zero codes
+ */
+#define DRIVER_WS2812B_LINK_ZERO_CODE(HANDLE, FUC)          (HANDLE)->zero_code = FUC
 
 /**
  * @brief     link delay_ms function
