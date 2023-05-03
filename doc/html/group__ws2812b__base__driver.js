@@ -19,7 +19,7 @@ var group__ws2812b__base__driver =
       [ "temperature_max", "structws2812b__info__s.html#a3366a5dce9b829e03c3d321c2b4df3f6", null ],
       [ "temperature_min", "structws2812b__info__s.html#a8f9dbe66ac0b66ebae0a36fcb4ba368e", null ]
     ] ],
-    [ "WS2812B_RESET_BIT_FRAME_LEN", "group__ws2812b__base__driver.html#ga64aceb4041ac5c461abeb0012fd6982b", null ],
+    [ "WS2812B_EACH_RESET_BIT_FRAME_LEN", "group__ws2812b__base__driver.html#gae5540c5fee431b39d1a059e77d4a77e1", null ],
     [ "ws2812b_handle_t", "group__ws2812b__base__driver.html#ga8e9cc95839b82bfd2baf02e566930593", null ],
     [ "ws2812b_info_t", "group__ws2812b__base__driver.html#ga4d2a587a69a1cc505cb403e5bd97e4da", null ],
     [ "ws2812b_deinit", "group__ws2812b__base__driver.html#ga6fa1311ef2353ea55c58aa3bd7033e22", null ],
@@ -28,5 +28,5 @@ var group__ws2812b__base__driver =
     [ "ws2812b_set_reg", "group__ws2812b__base__driver.html#gaf9000e2cf8036d77c73d9131f8e8e495", null ],
     [ "ws2812b_write", "group__ws2812b__base__driver.html#ga60effc5b5f3a3326ffaa3a856629d264", null ],
     [ "ws2812b_write_only_color", "group__ws2812b__base__driver.html#gac6fd3f9b02dff6d25690de921ae3e021", null ],
-    [ "ws2812b_write_only_reset", "group__ws2812b__base__driver.html#ga52fb81e9ec621b4c44624a0a35a182df", null ]
+    [ "ws2812b_write_only_reset", "group__ws2812b__base__driver.html#ga9143c3d9bf67e15e3124f06a805cb9ee", null ]
 ];
