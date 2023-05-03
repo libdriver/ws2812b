@@ -57,9 +57,11 @@ extern "C" {
  */
 
 /**
- * @brief ws2812b reset bit frame length definition
+ * @brief ws2812b each reset bit frame length definition
  */
-#define WS2812B_RESET_BIT_FRAME_LEN 8192        /**< 8192 */
+#ifndef WS2812B_EACH_RESET_BIT_FRAME_LEN
+    #define WS2812B_EACH_RESET_BIT_FRAME_LEN        512        /**< 512 */
+#endif
 
 /**
  * @brief ws2812b handle structure definition
@@ -216,6 +218,7 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
 /**
  * @brief     write the reset frame
  * @param[in] *handle points to a ws2812b handle structure
+ * @param[in] len is the rgb length
  * @param[in] *temp points to a temp buffer
  * @param[in] temp_len is the temp buffer length
  * @return    status code
@@ -227,7 +230,7 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
  *            - 5 temp buffer is too small
  * @note      none
  */
-uint8_t ws2812b_write_only_reset(ws2812b_handle_t *handle, uint8_t *temp, uint32_t temp_len);
+uint8_t ws2812b_write_only_reset(ws2812b_handle_t *handle, uint32_t len, uint8_t *temp, uint32_t temp_len);
 
 /**
  * @brief     write the color frame
