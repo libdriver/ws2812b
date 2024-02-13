@@ -1,6 +1,6 @@
 /**
  * @mainpage  LibDriver WS2812B
- * @brief     libdriver ws2812b is a full function driver of ws2812b and it can run in both MCU and Linux platform.
+ * @brief     LibDriver WS2812B is a full function driver of WS2812B and it can run in both MCU and Linux platform.
  * @version   1.0.0
  * @author    Shifeng Li
  *
