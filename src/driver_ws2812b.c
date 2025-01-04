@@ -50,7 +50,7 @@
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to a ws2812b handle structure
+ * @param[in] *handle pointer to a ws2812b handle structure
  * @return    status code
  *            - 0 success
  *            - 1 spi initialization failed
@@ -106,8 +106,8 @@ uint8_t ws2812b_init(ws2812b_handle_t *handle)
 
 /**
  * @brief     write one frame
- * @param[in] rgb is the input color
- * @param[in] *temp points to a temp buffer
+ * @param[in] rgb input color
+ * @param[in] *temp pointer to a temp buffer
  * @note      none
  */
 static void a_ws2812b_write_one_frame(uint32_t rgb, uint8_t temp[48])
@@ -163,11 +163,11 @@ static void a_ws2812b_write_one_frame(uint32_t rgb, uint8_t temp[48])
 
 /**
  * @brief     write reset and color frame
- * @param[in] *handle points to a ws2812b handle structure
- * @param[in] *rgb points to a rgb color buffer
- * @param[in] len is the rgb length
- * @param[in] *temp points to a temp buffer
- * @param[in] temp_len is the temp buffer length
+ * @param[in] *handle pointer to a ws2812b handle structure
+ * @param[in] *rgb pointer to a rgb color buffer
+ * @param[in] len rgb length
+ * @param[in] *temp pointer to a temp buffer
+ * @param[in] temp_len temp buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write command failed
@@ -250,10 +250,10 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
 
 /**
  * @brief     write the reset frame
- * @param[in] *handle points to a ws2812b handle structure
- * @param[in] len is the rgb length
- * @param[in] *temp points to a temp buffer
- * @param[in] temp_len is the temp buffer length
+ * @param[in] *handle pointer to a ws2812b handle structure
+ * @param[in] len rgb length
+ * @param[in] *temp pointer to a temp buffer
+ * @param[in] temp_len temp buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write command failed
@@ -309,11 +309,11 @@ uint8_t ws2812b_write_only_reset(ws2812b_handle_t *handle, uint32_t len, uint8_t
 
 /**
  * @brief     write the color frame
- * @param[in] *handle points to a ws2812b handle structure
- * @param[in] *rgb points to a rgb color buffer
- * @param[in] len is the rgb length
- * @param[in] *temp points to a temp buffer
- * @param[in] temp_len is the temp buffer length
+ * @param[in] *handle pointer to a ws2812b handle structure
+ * @param[in] *rgb pointer to a rgb color buffer
+ * @param[in] len rgb length
+ * @param[in] *temp pointer to a temp buffer
+ * @param[in] temp_len temp buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write command failed
@@ -376,7 +376,7 @@ uint8_t ws2812b_write_only_color(ws2812b_handle_t *handle, uint32_t *rgb, uint32
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to a ws2812b handle structure
+ * @param[in] *handle pointer to a ws2812b handle structure
  * @return    status code
  *            - 0 success
  *            - 1 spi deinit failed
@@ -411,9 +411,9 @@ uint8_t ws2812b_deinit(ws2812b_handle_t *handle)
 
 /**
  * @brief     set the chip register
- * @param[in] *handle points to a ws2812b handle structure
- * @param[in] *buf points to a data buffer
- * @param[in] len is the data length
+ * @param[in] *handle pointer to a ws2812b handle structure
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 write failed
@@ -437,7 +437,7 @@ uint8_t ws2812b_set_reg(ws2812b_handle_t *handle, uint8_t *buf, uint16_t len)
 
 /**
  * @brief      get chip's information
- * @param[out] *info points to a ws2812b info structure
+ * @param[out] *info pointer to a ws2812b info structure
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL

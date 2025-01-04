@@ -105,48 +105,48 @@ typedef struct ws2812b_info_s
 
 /**
  * @brief     initialize ws2812b_handle_t structure
- * @param[in] HANDLE points to a ws2812b handle structure
- * @param[in] STRUCTURE is ws2812b_handle_t
+ * @param[in] HANDLE pointer to a ws2812b handle structure
+ * @param[in] STRUCTURE ws2812b_handle_t
  * @note      none
  */
 #define DRIVER_WS2812B_LINK_INIT(HANDLE, STRUCTURE)               memset(HANDLE, 0, sizeof(STRUCTURE))
 
 /**
  * @brief     link spi_10mhz_init function
- * @param[in] HANDLE points to a ws2812b handle structure
- * @param[in] FUC points to a spi_10mhz_init function address
+ * @param[in] HANDLE pointer to a ws2812b handle structure
+ * @param[in] FUC pointer to a spi_10mhz_init function address
  * @note      none
  */
 #define DRIVER_WS2812B_LINK_SPI_10MHZ_INIT(HANDLE, FUC)          (HANDLE)->spi_10mhz_init = FUC
 
 /**
  * @brief     link spi_deinit function
- * @param[in] HANDLE points to a ws2812b handle structure
- * @param[in] FUC points to a spi_deinit function address
+ * @param[in] HANDLE pointer to a ws2812b handle structure
+ * @param[in] FUC pointer to a spi_deinit function address
  * @note      none
  */
 #define DRIVER_WS2812B_LINK_SPI_DEINIT(HANDLE, FUC)              (HANDLE)->spi_deinit = FUC
 
 /**
  * @brief     link spi_write_cmd function
- * @param[in] HANDLE points to a ws2812b handle structure
- * @param[in] FUC points to a spi_write_cmd function address
+ * @param[in] HANDLE pointer to a ws2812b handle structure
+ * @param[in] FUC pointer to a spi_write_cmd function address
  * @note      none
  */
 #define DRIVER_WS2812B_LINK_SPI_WRITE_COMMAND(HANDLE, FUC)       (HANDLE)->spi_write_cmd = FUC
 
 /**
  * @brief     link delay_ms function
- * @param[in] HANDLE points to a ws2812b handle structure
- * @param[in] FUC points to a delay_ms function address
+ * @param[in] HANDLE pointer to a ws2812b handle structure
+ * @param[in] FUC pointer to a delay_ms function address
  * @note      none
  */
 #define DRIVER_WS2812B_LINK_DELAY_MS(HANDLE, FUC)                (HANDLE)->delay_ms = FUC
 
 /**
  * @brief     link debug_print function
- * @param[in] HANDLE points to a ws2812b handle structure
- * @param[in] FUC points to a debug_print function address
+ * @param[in] HANDLE pointer to a ws2812b handle structure
+ * @param[in] FUC pointer to a debug_print function address
  * @note      none
  */
 #define DRIVER_WS2812B_LINK_DEBUG_PRINT(HANDLE, FUC)             (HANDLE)->debug_print = FUC
@@ -164,7 +164,7 @@ typedef struct ws2812b_info_s
 
 /**
  * @brief      get chip's information
- * @param[out] *info points to a ws2812b info structure
+ * @param[out] *info pointer to a ws2812b info structure
  * @return     status code
  *             - 0 success
  *             - 2 handle is NULL
@@ -174,7 +174,7 @@ uint8_t ws2812b_info(ws2812b_info_t *info);
 
 /**
  * @brief     initialize the chip
- * @param[in] *handle points to a ws2812b handle structure
+ * @param[in] *handle pointer to a ws2812b handle structure
  * @return    status code
  *            - 0 success
  *            - 1 spi initialization failed
@@ -186,7 +186,7 @@ uint8_t ws2812b_init(ws2812b_handle_t *handle);
 
 /**
  * @brief     close the chip
- * @param[in] *handle points to a ws2812b handle structure
+ * @param[in] *handle pointer to a ws2812b handle structure
  * @return    status code
  *            - 0 success
  *            - 1 spi deinit failed
@@ -198,11 +198,11 @@ uint8_t ws2812b_deinit(ws2812b_handle_t *handle);
 
 /**
  * @brief     write reset and color frame
- * @param[in] *handle points to a ws2812b handle structure
- * @param[in] *rgb points to a rgb color buffer
- * @param[in] len is the rgb length
- * @param[in] *temp points to a temp buffer
- * @param[in] temp_len is the temp buffer length
+ * @param[in] *handle pointer to a ws2812b handle structure
+ * @param[in] *rgb pointer to a rgb color buffer
+ * @param[in] len rgb length
+ * @param[in] *temp pointer to a temp buffer
+ * @param[in] temp_len temp buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write command failed
@@ -217,10 +217,10 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
 
 /**
  * @brief     write the reset frame
- * @param[in] *handle points to a ws2812b handle structure
- * @param[in] len is the rgb length
- * @param[in] *temp points to a temp buffer
- * @param[in] temp_len is the temp buffer length
+ * @param[in] *handle pointer to a ws2812b handle structure
+ * @param[in] len rgb length
+ * @param[in] *temp pointer to a temp buffer
+ * @param[in] temp_len temp buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write command failed
@@ -234,11 +234,11 @@ uint8_t ws2812b_write_only_reset(ws2812b_handle_t *handle, uint32_t len, uint8_t
 
 /**
  * @brief     write the color frame
- * @param[in] *handle points to a ws2812b handle structure
- * @param[in] *rgb points to a rgb color buffer
- * @param[in] len is the rgb length
- * @param[in] *temp points to a temp buffer
- * @param[in] temp_len is the temp buffer length
+ * @param[in] *handle pointer to a ws2812b handle structure
+ * @param[in] *rgb pointer to a rgb color buffer
+ * @param[in] len rgb length
+ * @param[in] *temp pointer to a temp buffer
+ * @param[in] temp_len temp buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write command failed
@@ -253,9 +253,9 @@ uint8_t ws2812b_write_only_color(ws2812b_handle_t *handle, uint32_t *rgb, uint32
 
 /**
  * @brief     set the chip register
- * @param[in] *handle points to a ws2812b handle structure
- * @param[in] *buf points to a data buffer
- * @param[in] len is the data length
+ * @param[in] *handle pointer to a ws2812b handle structure
+ * @param[in] *buf pointer to a data buffer
+ * @param[in] len data length
  * @return    status code
  *            - 0 success
  *            - 1 write failed

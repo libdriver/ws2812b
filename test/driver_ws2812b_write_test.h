@@ -52,8 +52,8 @@ extern "C" {
 
 /**
  * @brief     write test
- * @param[in] cnt is the number of the ws2812b led
- * @param[in] times is the test times
+ * @param[in] cnt number of the ws2812b led
+ * @param[in] times test times
  * @return    status code
  *            - 0 success
  *            - 1 test failed

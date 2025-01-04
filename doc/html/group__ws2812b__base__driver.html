@@ -220,7 +220,7 @@ Functions</h2></td></tr>
 <p>close the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a ws2812b handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a ws2812b handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -256,7 +256,7 @@ Functions</h2></td></tr>
 <p>get chip's information </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[out]</td><td class="paramname">*info</td><td>points to a ws2812b info structure </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">*info</td><td>pointer to a ws2812b info structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -290,7 +290,7 @@ Functions</h2></td></tr>
 <p>initialize the chip </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a ws2812b handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a ws2812b handle structure </td></tr>
   </table>
   </dd>
 </dl>
@@ -342,9 +342,9 @@ Functions</h2></td></tr>
 <p>set the chip register </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a ws2812b handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*buf</td><td>points to a data buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the data length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a ws2812b handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*buf</td><td>pointer to a data buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>data length </td></tr>
   </table>
   </dd>
 </dl>
@@ -408,11 +408,11 @@ Functions</h2></td></tr>
 <p>write reset and color frame </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a ws2812b handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*rgb</td><td>points to a rgb color buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the rgb length </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*temp</td><td>points to a temp buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">temp_len</td><td>is the temp buffer length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a ws2812b handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*rgb</td><td>pointer to a rgb color buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>rgb length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*temp</td><td>pointer to a temp buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">temp_len</td><td>temp buffer length </td></tr>
   </table>
   </dd>
 </dl>
@@ -479,11 +479,11 @@ Functions</h2></td></tr>
 <p>write the color frame </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a ws2812b handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*rgb</td><td>points to a rgb color buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the rgb length </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*temp</td><td>points to a temp buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">temp_len</td><td>is the temp buffer length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a ws2812b handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*rgb</td><td>pointer to a rgb color buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>rgb length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*temp</td><td>pointer to a temp buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">temp_len</td><td>temp buffer length </td></tr>
   </table>
   </dd>
 </dl>
@@ -544,10 +544,10 @@ Functions</h2></td></tr>
 <p>write the reset frame </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>points to a ws2812b handle structure </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>is the rgb length </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">*temp</td><td>points to a temp buffer </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">temp_len</td><td>is the temp buffer length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*handle</td><td>pointer to a ws2812b handle structure </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">len</td><td>rgb length </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">*temp</td><td>pointer to a temp buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">temp_len</td><td>temp buffer length </td></tr>
   </table>
   </dd>
 </dl>
