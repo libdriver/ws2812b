@@ -70,10 +70,10 @@ uint8_t ws2812b_basic_deinit(void);
 
 /**
  * @brief     basic example write 
- * @param[in] *rgb points to a rgb color buffer
- * @param[in] len is the rgb length
- * @param[in] *temp points to a temp buffer
- * @param[in] temp_len is the temp buffer length
+ * @param[in] *rgb pointer to a rgb color buffer
+ * @param[in] len rgb length
+ * @param[in] *temp pointer to a temp buffer
+ * @param[in] temp_len temp buffer length
  * @return    status code
  *            - 0 success
  *            - 1 write failed

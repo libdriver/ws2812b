@@ -53,8 +53,8 @@ static uint8_t gs_temp[1024];        /**< temp buffer*/
 
 /**
  * @brief     ws2812b full function
- * @param[in] argc is arg numbers
- * @param[in] **argv is the arg address
+ * @param[in] argc arg numbers
+ * @param[in] **argv arg address
  * @return    status code
  *            - 0 success
  *            - 1 run failed
