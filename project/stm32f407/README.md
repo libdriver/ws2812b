@@ -107,7 +107,7 @@ ws2812b: max supply voltage is 5.3V.
 ws2812b: max current is 16.00mA.
 ws2812b: max temperature is 85.0C.
 ws2812b: min temperature is -25.0C.
-ws2812b: start register test.
+ws2812b: start write test.
 ws2812b: 1/10 times.
 ws2812b: 2/10 times.
 ws2812b: 3/10 times.
@@ -118,7 +118,7 @@ ws2812b: 7/10 times.
 ws2812b: 8/10 times.
 ws2812b: 9/10 times.
 ws2812b: 10/10 times.
-ws2812b: finish register test.
+ws2812b: finish write test.
 ```
 
 ```shell

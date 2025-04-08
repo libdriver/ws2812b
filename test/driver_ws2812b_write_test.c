@@ -100,8 +100,8 @@ uint8_t ws2812b_write_test(uint32_t cnt, uint32_t times)
         ws2812b_interface_debug_print("ws2812b: cnt is over 21 and use 21.\n");
     }
     
-    /* start register test */
-    ws2812b_interface_debug_print("ws2812b: start register test.\n");
+    /* start write test */
+    ws2812b_interface_debug_print("ws2812b: start write test.\n");
     
     /* ws2812b initialization */
     res = ws2812b_init(&gs_handle);
@@ -151,8 +151,8 @@ uint8_t ws2812b_write_test(uint32_t cnt, uint32_t times)
         return 1;
     }
     
-    /* finish register test */
-    ws2812b_interface_debug_print("ws2812b: finish register test.\n");
+    /* finish write test */
+    ws2812b_interface_debug_print("ws2812b: finish write test.\n");
     
     /* close the chip */
     (void)ws2812b_deinit(&gs_handle);

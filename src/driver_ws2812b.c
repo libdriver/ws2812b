@@ -180,7 +180,8 @@ static void a_ws2812b_write_one_frame(uint32_t rgb, uint8_t temp[48])
  */
 uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uint8_t *temp, uint32_t temp_len)
 {
-    uint32_t i, bit_size;
+    uint32_t i;
+    uint32_t bit_size;
     
     if (handle == NULL)                                                     /* check handle */
     {
@@ -223,7 +224,7 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
         return 1;                                                           /* return error */
     }
     
-    bit_size = 24 * 16 * len ;                                              /* set the bit size */
+    bit_size = 24 * 16 * len;                                               /* set the bit size */
     bit_size = bit_size / 8;                                                /* set the bit size */
     if (bit_size > temp_len)                                                /* check temp length */
     {
@@ -265,7 +266,8 @@ uint8_t ws2812b_write(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uin
  */
 uint8_t ws2812b_write_only_reset(ws2812b_handle_t *handle, uint32_t len, uint8_t *temp, uint32_t temp_len)
 {
-    uint32_t i, bit_size;
+    uint32_t i;
+    uint32_t bit_size;
     
     if (handle == NULL)                                                     /* check handle */
     {
@@ -326,7 +328,8 @@ uint8_t ws2812b_write_only_reset(ws2812b_handle_t *handle, uint32_t len, uint8_t
  */
 uint8_t ws2812b_write_only_color(ws2812b_handle_t *handle, uint32_t *rgb, uint32_t len, uint8_t *temp, uint32_t temp_len)
 {
-    uint32_t i, bit_size;
+    uint32_t i;
+    uint32_t bit_size;
     
     if (handle == NULL)                                                     /* check handle */
     {
@@ -349,7 +352,7 @@ uint8_t ws2812b_write_only_color(ws2812b_handle_t *handle, uint32_t *rgb, uint32
         return 5;                                                           /* return error */
     }
     
-    bit_size = 24 * 16 * len ;                                              /* set the bit size */
+    bit_size = 24 * 16 * len;                                               /* set the bit size */
     bit_size = bit_size / 8;                                                /* set the bit size */
     if (bit_size > temp_len)                                                /* check temp length */
     {
