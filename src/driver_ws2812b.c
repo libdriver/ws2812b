@@ -123,7 +123,7 @@ static void a_ws2812b_write_one_frame(uint32_t rgb, uint8_t temp[48])
     b = (uint8_t)((rgb >> 0) & 0xFF);                                /* set blue */
     c = ((uint32_t)(g) << 16) | ((uint32_t)(r) << 8) | b;            /* set color */
     
-    memset(temp, 0, sizeof(uint8_t) * 30);                           /* clear the temp buffer */
+    memset(temp, 0, sizeof(uint8_t) * 48);                           /* clear the temp buffer */
     
     point = 0;                                                       /* clear point */
     for (i = 0; i < 24; i++)                                         /* set 24 bit */
