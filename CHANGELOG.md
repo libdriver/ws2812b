@@ -1,3 +1,9 @@
+## 1.0.6 (2025-10-15)
+
+## Bug Fixes
+
+- fix buffer errors
+
 ## 1.0.5 (2025-04-16)
 
 ## Bug Fixes
