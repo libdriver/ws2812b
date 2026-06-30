@@ -1,3 +1,9 @@
+## 1.0.8 (2026-07-01)
+
+## Bug Fixes
+
+- fix reset bugs
+
 ## 1.0.7 (2025-10-26)
 
 ## Features
